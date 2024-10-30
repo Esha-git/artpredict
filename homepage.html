@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtPredict Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <div class="navbar-title">ArtPredict</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('about-us')">About Us</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Services</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showPage('view-patient')">View Patient</a>
+                    <a href="#" onclick="showPage('add-patient')">Add New Patient</a>
+                </div>
+            </li>
+            <li><a href="#" onclick="showPage('contact-us')">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content sections -->
+    <div class="content" id="about-us">
+        <img src="hiv.png" alt="Health Care" class="about-img">
+        <h1>Making Health Care Better Together</h1>
+        <p>
+            Our classification model helps clinicians and the general public by accurately predicting responses to Antiretroviral Therapy (ART).
+            It provides insightful data that clinicians can use to make informed decisions, improving patient outcomes.
+        </p>
+    </div>
+
+    <div class="content" id="view-patient" style="display:none;">
+        <h1>View Patient Data</h1>
+        <p>Enter Patient ID:</p>
+        <input type="text" id="patient-id" placeholder="Enter Patient ID">
+        <button onclick="fetchPatientDetails()">Submit</button>
+
+        <div id="patient-details" class="patient-details" style="display:none;">
+            <h2>Patient Details</h2>
+            <p id="details-content">Loading...</p>
+            <a id="diagnosis-link" href="#" style="display:none;">View Patient Diagnosis</a>
+        </div>
+    </div>
+
+    <div class="content" id="add-patient" style="display:none;">
+        <h1>Add New Patient</h1>
+        <p>
+            <a href="https://forms.gle/dbVkR3aJ5kmn6qXg7" target="_blank">Enter Patient Details</a>
+        </p>
+        <div class="spacing"></div>
+        <button onclick="viewPatientDetails()">View Patient Details</button>
+        <div class="spacing"></div>
+        <button onclick="viewPredictionDetails()">View Prediction Details</button>
+        <div class="spacing"></div>
+        <button onclick="diagnosis()">Diagnosis</button>
+    </div>
+
+    <div class="content" id="contact-us" style="display:none;">
+        <h1>Contact Us</h1>
+        <p>You can reach us at support@artpredict.com for any inquiries or support.</p>
+    </div>
+
+    <script>
+        // Simulated patient data from csv
+        const patientData = [
+            {
+                patientID: "P001",
+                name: "Alice Smith",
+                email: "alice@example.com",
+                age: 28,
+                gender: "Female",
+                viralLoad: 100,
+                cd4Count: 450,
+                adherenceLevel: "Medium",
+                date: "2024-10-20"
+            },
+            {
+                patientID: "P002",
+                name: "Bob Johnson",
+                email: "bob@example.com",
+                age: 35,
+                gender: "Male",
+                viralLoad: 200,
+                cd4Count: 550,
+                adherenceLevel: "High",
+                date: "2024-10-21"
+            },
+            // Add more patient objects here as needed
+        ];
+
+        // Function to switch between pages
+        function showPage(pageId) {
+            document.querySelectorAll('.content').forEach(function(content) {
+                content.style.display = 'none';
+            });
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        // Set default page
+        showPage('about-us');
+
+        // Function to fetch patient details by ID
+        function fetchPatientDetails() {
+            const patientID = document.getElementById('patient-id').value;
+            const patientDetailsDiv = document.getElementById('patient-details');
+            const detailsContent = document.getElementById('details-content');
+            const diagnosisLink = document.getElementById('diagnosis-link');
+
+            const patient = patientData.find(p => p.patientID === patientID);
+
+            if (patient) {
+                detailsContent.innerHTML = `
+                    Name: ${patient.name}<br>
+                    Email: ${patient.email}<br>
+                    Age: ${patient.age}<br>
+                    Gender: ${patient.gender}<br>
+                    Patient ID: ${patient.patientID}<br>
+                    Viral Load: ${patient.viralLoad}<br>
+                    CD4 Count: ${patient.cd4Count}<br>
+                    Adherence Level: ${patient.adherenceLevel}<br>
+                    Date: ${patient.date}
+                `;
+                diagnosisLink.style.display = 'block';
+            } else {
+                detailsContent.innerHTML = "No patient found.";
+                diagnosisLink.style.display = 'none';
+            }
+
+            patientDetailsDiv.style.display = 'block';
+        }
+
+        // Placeholder functions for other buttons
+        function viewPredictionDetails() {
+            alert("View Prediction Details function will be implemented.");
+        }
+
+        function diagnosis() {
+            alert("Diagnosis function will be implemented.");
+        }
+    </script>
+</body>
+</html>

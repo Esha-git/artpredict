@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "upheld-terminus-439508-k4",
+  "private_key_id": "566417545c78e7c08eb7348f2b34ef3223886c69",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDKNyVcxkySCNPc\nD3TkA5EKqRHqV+mHvAXh2AB8hfHkGklEdqkbKteyhRAkIIqfGXGMvN3AeWPIU25h\nhARasOH0qIUp5J72L+eSIy6J5rjDZidj39fFLEW/UJu9OtXUBKrSMTZ1Sw2/ewyb\nSxYtEeEv3Zl1yxlNmNuJ5xr8FFWknGxdnR5EPA7Hs4OWZg4DWeR+ewH6USXTjQiY\n7QvXm0hcUEbGtDtyFzv1Nn6JJzXkAO1fSWpnK6q0Fw5eYD9GOy7pxORi2FnURk5p\n/UpK+ebIJz2CLBX5W/y9+C41kgPJBZwRDYiGFFvOBNGh+MdGvGa6hM8SxrcSvrAF\nrsORfkSrAgMBAAECggEAFVNWgd+50IbUzPbmVWuY3r5w0L1/t9xY5HXyqy83EN7C\nzlETSXWttLp6tsylwdydkIGUg0lqAATodalGCkhwM+yXypC9QOpRaiSCsnFeF+FM\nkyhWqYkfO+tk2UJ8rXTmjO86toj5RLHV5QS4rH0fufwNRJJsMzZFJNh2DJKaa5cR\ng3mN+LgAhNVoGxaHtDcWyKOqgaefrt7Zo74cw7/ura7sKWIE5tDVa01zzDbFYA6v\n5HdJ4y2kp4Uhs/V/mWU+6x7xVzGoIe2uGKrmUlb4WxEI9if7EJ23VJpSWh5kF5nQ\nqU4iTS2XiAdmNubBYaQwlAAyv3qXYhr/Vlcr0bVMEQKBgQDruyCY8rYi1DNvYS2H\nivsE1wyNsLOkz0AKK5bhJ2mlogS6vSyna47OVDrbO/j8XcUmU0joUS6T6K5cfZ9z\nhMbbbZ9FqZI4qGRy3dbqhlLCnaEKsTO/IokLpkhNGy11x+Kb8whqDTkKBfwEa9Bd\nWC3GQqix5pTe7xd4FxgiOsI9GwKBgQDbmkeTEY54FBkXnaF3bEjovSN6/5YoWAvb\n8I8YtejDPoqrHunQxtpZ9KkSmYRR+hdoCMqVcLwb6yQzPF0G/HIlzShvu9kqR7AA\nUKVPQhO8BxAPLU/uEZh5/36UxDX865CEZnCyampI9iIEQox8EQ6XRnnDqNuaOFgk\nDDOLBt9fsQKBgQDe9Gj7YCwWOv++63mlhjSuujrcVHFEguS9+cZFhAJvLxMsD7qJ\nSriRu6bDLjDreED8Y69EU2wrZtprDkHef4mZhlArEhwDTHldDyazQIJMIcxsEXew\n4pgeFZKyou7XREu3ViDyNTlqmohnIhW8A6efqfJl+IF7bUWURruDvHF0WwKBgHi4\nUB5l6VbTXZPg4JFg4pem2elUtXwKIsLOdCuWXJVwPRSi0tAlcIVA/OyvndDe1Z0o\nMA2EwrPqSKUtysn7Xtiu9kquDkyyyeryal2uqmCT1V0ygJ0T6SkvraskTbVy3agb\nFFrQKwte2wZSex381nOMl4VavxYBYVq3pmIH7iWRAoGBAJGhvh85kGx9g6u+UOt3\nd5y6Lpgvb3IdEFEZeEJmFKrwb3qlYXJa4DghcCsfX5qgE8phfAnCIKLUMK3306tz\nPy1nAjTeREP8Dxp9XeNc3t7c1n9M67ZmKlV6YTIPEP89QufjnGnqCUdpaTUgUlqQ\n/LYxIRYe8BRFt4ftLpOdjALj\n-----END PRIVATE KEY-----\n",
+  "client_email": "eram-nadiya@upheld-terminus-439508-k4.iam.gserviceaccount.com",
+  "client_id": "106642445248694803199",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/eram-nadiya%40upheld-terminus-439508-k4.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

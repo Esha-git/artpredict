@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Patient</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <div class="navbar-title">ArtPredict</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('about-us')">About Us</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Services</a>
+                <div class="dropdown-content">
+                    <a href="view_patient.html">View Patient</a>
+                    <a href="add_patient.html">Add New Patient</a>
+                </div>
+            </li>
+            <li><a href="#" onclick="showPage('contact-us')">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Add New Patient</h1>
+        <p>
+            <a href="https://forms.gle/dbVkR3aJ5kmn6qXg7" target="_blank">Enter Patient Details</a>
+        </p>
+        
+        <div class="button-group">
+            <button onclick="viewPatientDetails()">View Patient Details</button>
+            <button onclick="viewPredictionDetails()">View Prediction Details</button>
+            <button onclick="diagnosis()">Diagnosis</button>
+        </div>
+
+        <div id="patient-details" class="patient-info" style="display:none;">
+            <h2>Patient Details</h2>
+            <div class="details-box">
+                <p id="details-content"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function viewPatientDetails() {
+            // Simulate fetching patient details
+            const patientData = {
+                name: "John Doe",
+                email: "john.doe@example.com",
+                age: 30,
+                gender: "Male",
+                patientId: "P123456",
+                viralLoad: "1000",
+                cd4Count: "600",
+                adherenceLevel: "Good",
+                date: "2024-10-20"
+            };
+            const detailsContent = `
+                Name: ${patientData.name}<br>
+                Email: ${patientData.email}<br>
+                Age: ${patientData.age}<br>
+                Gender: ${patientData.gender}<br>
+                Patient ID: ${patientData.patientId}<br>
+                Viral Load: ${patientData.viralLoad}<br>
+                CD4 Count: ${patientData.cd4Count}<br>
+                Adherence Level: ${patientData.adherenceLevel}<br>
+                Date: ${patientData.date}
+            `;
+            document.getElementById('details-content').innerHTML = detailsContent;
+            document.getElementById('patient-details').style.display = 'block';
+        }
+
+        function viewPredictionDetails() {
+            alert("View Prediction Details feature is not yet implemented.");
+        }
+
+        function diagnosis() {
+            alert("Diagnosis feature is not yet implemented.");
+        }
+    </script>
+</body>
+</html>

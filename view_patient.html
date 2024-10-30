@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Patient</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .patient-details {
+            border: 2px solid #007BFF; /* Blue border */
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            display: none; /* Initially hidden */
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px; /* Adjust width as needed */
+            border-radius: 5px;
+            border: 1px solid #007BFF; /* Blue border */
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <div class="navbar-title">ArtPredict</div>
+        <ul class="nav-links">
+            <li><a href="about_us.html">About Us</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Services</a>
+                <div class="dropdown-content">
+                    <a href="view_patient.html">View Patient</a>
+                    <a href="add_patient.html">Add New Patient</a>
+                </div>
+            </li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>View Patient Data</h1>
+        <p>Enter Patient ID:</p>
+        <input type="text" id="patient-id" placeholder="Enter Patient ID" aria-label="Patient ID Input">
+        <button onclick="fetchPatientDetails()" aria-label="Submit Patient ID">Submit</button>
+
+        <div id="patient-details" class="patient-details">
+            <h2>Patient Details</h2>
+            <p id="details-content">Loading...</p>
+            <a id="diagnosis-link" href="#" style="display:none;">View Patient Diagnosis</a>
+        </div>
+    </div>
+
+    <script>
+        let patientData = [];
+
+        // Function to fetch and parse CSV data
+        function fetchCSVData() {
+            const csvUrl = 'https://drive.google.com/uc?export=download&id=1m7_SH86VKJoQMycVTrzuY_cCLvs9CDEQ'; // Corrected URL
+            fetch(csvUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    const rows = data.split('\n');
+                    const headers = rows[0].split(',').map(header => header.trim()); // Get headers and trim whitespace
+
+                    for (let i = 1; i < rows.length; i++) {
+                        const row = rows[i].split(',');
+                        if (row.length === headers.length) {
+                            const patient = {};
+                            headers.forEach((header, index) => {
+                                patient[header] = row[index].trim(); // Trim each value to remove extra spaces
+                            });
+                            patientData.push(patient);
+                        }
+                    }
+                    console.log('Patient data loaded:', JSON.stringify(patientData, null, 2)); // Debugging log
+                })
+                .catch(error => console.error('Error fetching CSV data:', error));
+        }
+
+        // Call the function on page load
+        window.onload = fetchCSVData;
+
+        // Function to fetch patient details by ID
+        function fetchPatientDetails() {
+            const patientID = document.getElementById('patient-id').value.trim();
+            if (!patientID) {
+                alert('Please enter a Patient ID.');
+                return; // Exit the function if no Patient ID is entered
+            }
+
+            const patientDetailsDiv = document.getElementById('patient-details');
+            const detailsContent = document.getElementById('details-content');
+            const diagnosisLink = document.getElementById('diagnosis-link');
+
+            // Update the search property to match the CSV headers
+            const patient = patientData.find(p => p.Patient_ID === patientID); // Ensure you're using the correct property name
+
+            if (patient) {
+                detailsContent.innerHTML = `
+                    <strong>Patient ID:</strong> ${patient.Patient_ID}<br>
+                    <strong>Viral Load:</strong> ${patient.Viral_Load}<br>
+                    <strong>CD4 Count:</strong> ${patient.CD4_Count}<br>
+                    <strong>Adherence Level:</strong> ${patient.Adherence_Level}<br>
+                    <strong>Treatment Response:</strong> ${patient.Treatment_Response}
+                `;
+                diagnosisLink.style.display = 'block'; // Show diagnosis link
+            } else {
+                detailsContent.innerHTML = "No patient found.";
+                diagnosisLink.style.display = 'none'; // Hide diagnosis link
+            }
+
+            patientDetailsDiv.style.display = 'block'; // Show the details div
+        }
+    </script>
+</body>
+</html>

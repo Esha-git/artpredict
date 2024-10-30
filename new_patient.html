@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Patient</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <div class="navbar-title">ArtPredict</div>
+        <ul class="nav-links">
+            <li><a href="homepage.html">About Us</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Services</a>
+                <div class="dropdown-content">
+                    <a href="view_patient.html">View Patient</a>
+                    <a href="new_patient.html">Add New Patient</a>
+                </div>
+            </li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>New Patient</h1>
+        
+        <!-- Link to Google Form -->
+        <p>
+            <a href="https://forms.gle/dbVkR3aJ5kmn6qXg7" target="_blank">Enter Patient Details</a>
+        </p>
+
+        <div style="margin-top: 20px;">
+            <!-- Buttons to view details -->
+            <button onclick="viewPatientDetails()">View Patient Details</button>
+            <button onclick="viewPredictionDetails()">View Prediction Details</button>
+            <button onclick="viewDiagnosis()">Diagnosis</button>
+        </div>
+
+        <!-- Container to display patient details -->
+        <div id="patientDetails" class="patient-details" style="display:none;">
+            <h2>Patient Details</h2>
+            <div class="details-box">
+                <p><strong>Name:</strong> <span id="patientName"></span></p>
+                <p><strong>Email:</strong> <span id="patientEmail"></span></p>
+                <p><strong>Age:</strong> <span id="patientAge"></span></p>
+                <p><strong>Gender:</strong> <span id="patientGender"></span></p>
+                <p><strong>Patient ID:</strong> <span id="patientID"></span></p>
+                <p><strong>Viral Load:</strong> <span id="viralLoad"></span></p>
+                <p><strong>CD4 Count:</strong> <span id="cd4Count"></span></p>
+                <p><strong>Adherence Level:</strong> <span id="adherenceLevel"></span></p>
+                <p><strong>Date:</strong> <span id="submissionDate"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample patient data (you can replace this with actual data fetching logic later)
+        const samplePatientData = {
+            name: "John Doe",
+            email: "john.doe@example.com",
+            age: 32,
+            gender: "Male",
+            patientID: "P12345",
+            viralLoad: "1500",
+            cd4Count: "500",
+            adherenceLevel: "High",
+            submissionDate: "2024-10-20"
+        };
+
+        // Function to display patient details
+        function viewPatientDetails() {
+            // Populate the patient details in the UI
+            document.getElementById('patientName').textContent = samplePatientData.name;
+            document.getElementById('patientEmail').textContent = samplePatientData.email;
+            document.getElementById('patientAge').textContent = samplePatientData.age;
+            document.getElementById('patientGender').textContent = samplePatientData.gender;
+            document.getElementById('patientID').textContent = samplePatientData.patientID;
+            document.getElementById('viralLoad').textContent = samplePatientData.viralLoad;
+            document.getElementById('cd4Count').textContent = samplePatientData.cd4Count;
+            document.getElementById('adherenceLevel').textContent = samplePatientData.adherenceLevel;
+            document.getElementById('submissionDate').textContent = samplePatientData.submissionDate;
+
+            // Display the patient details section
+            document.getElementById('patientDetails').style.display = 'block';
+        }
+
+        function viewPredictionDetails() {
+            alert('Prediction details will be shown here.');
+        }
+
+        function viewDiagnosis() {
+            alert('Diagnosis details will be shown here.');
+        }
+    </script>
+</body>
+</html>
